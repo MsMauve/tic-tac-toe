@@ -26,8 +26,10 @@ class Board
   def place_mark(position, mark)
     if valid_move?(position, mark)
       @cells[position - 1] = mark.upcase
+      true
     else
       puts "Try again with a valid position/mark!"
+      false
     end
   end
 
