@@ -1,19 +1,21 @@
 require_relative 'game'
 
 board = Board.new
-puts "Empty board:"
+puts "Empty board - should be no winner:"
 board.display
+puts "Winner? #{board.winner?}"
 
-puts "\nTesting valid moves:"
+puts "\nTesting horizontal win:"
 board.place_mark(1, "X")
-board.place_mark(5, "O")
+board.place_mark(2, "X")
+board.place_mark(3, "X")
 board.display
+puts "Winner? #{board.winner?}"
 
-puts "\nTesting invalid moves:"
-# Try placing on occupied space
+puts "\nTesting diagonal win:"
+board = Board.new
 board.place_mark(1, "O")
-# Try invalid position
-board.place_mark(10, "X")
-# Try invalid mark
-board.place_mark(2, "Y")
+board.place_mark(5, "O")
+board.place_mark(9, "O")
 board.display
+puts "Winner? #{board.winner?}"
